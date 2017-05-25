@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable'
 
 @Injectable()
 export class FilmItemsService {
-  url: string = "http://www.omdbapi.com/?page=1&s="
+  url: string = "http://www.omdbapi.com/?apikey=520bbe17&page=1&s="
   constructor(private http: Http) { }
 
   private extractData(res: Response) {
@@ -12,7 +12,8 @@ export class FilmItemsService {
     return body.Search || [];
   }
 
-  getFilms (filmName: string) {
-    return this.http.get(`${this.url}${filmName}`).map(this.extractData);
+  getFilms (filmName: string): Observable<any> {
+    return this.http.get(`${this.url}${filmName}`)
+           .map(this.extractData);
   }
 }

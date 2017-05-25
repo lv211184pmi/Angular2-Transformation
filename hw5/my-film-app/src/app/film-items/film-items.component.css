@@ -2,6 +2,11 @@
    margin: 50px auto; 
    max-width: 884px;
 }
-.dashboard-card {
+.film-card {
   max-width: 300px;
+  margin-bottom: 50px; 
+}
+
+.film-card > img {
+  height: 400px;
 }
