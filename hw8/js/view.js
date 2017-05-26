@@ -4,8 +4,8 @@
     let view = function () {        
         
         let DOMElements = {
-                result: document.querySelector("#result"),
-                pageInput: document.querySelector("#pageInput")
+                result: document.querySelector(".result"),
+                pageInput: document.querySelector(".page-input")
             },
             eventHolder = $({}),
             searchEventName = "search";
@@ -13,7 +13,9 @@
         function initListeners() {
             DOMElements.pageInput.addEventListener("keyup", (event) => {
                 let newFilm = event.target.closest(".search-film");
-                eventHolder.trigger(searchEventName, [searchElement(newFilm)]);
+                if(newFilm && event.keyCode === 13){
+                    eventHolder.trigger(searchEventName, [searchElement(newFilm)]);
+                }
             })
         }
 

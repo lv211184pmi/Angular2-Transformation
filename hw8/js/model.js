@@ -3,13 +3,11 @@
     
     let model = function() {
 
-        let filmURL = "http://www.omdbapi.com/?page=1&s=",
+        let filmURL = "http://www.omdbapi.com/?apikey=520bbe17&page=1&s=",
             filmName = "Matrix";
         
         function getFilms() {
-            return $.get( filmURL + filmName, function( films ) {
-                console.log("Initial data is loaded");
-            })            
+            return $.get( filmURL + filmName, function( films ) {});            
         }
                
         function updateFilms(searchFilm) {
